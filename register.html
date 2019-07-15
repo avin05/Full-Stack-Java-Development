@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="C:\Users\HP\Documents\class\css\register.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>Register</title>
+</head>
+<body ng-app="">
+    <div class="registerform">
+        <form name="frm">
+            <div class="Question">
+                <label for="name" style="font-size: 24px">
+                    Enter the name:
+
+                </label>
+                <input type="text" name="name" id="name" ng-model="name" required>
+                <span style="color: red;" ng-show="frm.name.$error.required">*</span>
+            </div>
+
+            <div class="Question">
+                    <label for="mail"style="font-size: 24px">
+                        Enter the Mail:
+    
+                    </label>
+                    <input type="email" name="mail" id="mail" ng-model="mail" required>
+                    <span style="color: red;" ng-show="frm.mail.$error.required">*</span>
+                    <span style="color: red;" ng-show="frm.mail.$error.email">Undefined</span>
+
+                </div>
+                <div class="Question">
+                        <label for="Phone"style="font-size: 24px">
+                            Enter the Number:
+        
+                        </label>
+                        <input type="number" name="Phone" id="Phone" ng-model="Phone" required>
+                        <span style="color: red;" ng-show="frm.Phone.$error.required">*</span>
+                    </div>
+                    <div class="Question">
+                            <label for="pass"style="font-size: 24px">
+                                Enter the Password:
+            
+                            </label>
+                            <input  type="password" name="pass" id="pass" ng-model="pass" ng-minlength="6" ng-maxlength="12" required>
+                            <span style="color: red;" ng-show="frm.pass.$error.required">*</span>
+                            <span style="color: red;" ng-show="frm.pass.$error.minlength">Too Short</span>
+                            <span style="color: red;" ng-show="frm.pass.$error.maxlength">Too Long</span>
+                        </div>
+                        <div class="Question">
+                                <label for="cpass"style="font-size: 24px">
+                                    Confirm Password:
+                
+                                </label>
+                                <input  type="password" name="cpass" id="cpass" ng-model="cpass" ng-minlength="6" ng-maxlength="12" required>
+                                <span style="color: red;" ng-show="frm.cpass.$error.required">*</span>
+                                <span style="color: red;" ng-show="frm.cpass.$error.minlength">Too Short</span>
+                                <span style="color: red;" ng-show="frm.cpass.$error.maxlength">Too Long</span>
+                            </div>
+                           
+                           
+                          
+
+
+        </form>
+        <button style="font-size: 24px" onclick="submit()">Register</button>
+       
+        
+    </div>
+    <script>
+        function submit(){
+            var password=document.getElementById("pass").value;
+            var cpassword=document.getElementById("cpass").value;
+            if(password!=cpassword){
+                swal("Oops!", "Password does not match", "error");
+            }
+        }
+
+        </script>
+    
+</body>
+</html>
